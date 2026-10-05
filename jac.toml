@@ -1,0 +1,57 @@
+[project]
+name = "studyline"
+version = "1.0.0"
+description = "A small coursework planner across web, mobile, and terminal"
+default-app = "web"
+jac-version = "==0.37.23"
+
+[apps.web]
+kind = "web-app"
+entry-point = "web.main"
+
+[apps.planner]
+kind = "service"
+entry-point = "core.planner"
+
+[apps.mobile]
+kind = "mobile"
+entry-point = "mobile.main"
+platform = "android"
+
+[apps.mobile.client]
+base_path = "./"
+
+[apps.mobile.client.api]
+base_url = "http://localhost:8000"
+
+[apps.cli]
+kind = "cli"
+entry-point = "cli.main"
+
+[dependencies.npm]
+react-native-web = "^0.21.2"
+lucide-react = "^0.469.0"
+react = "^19.2.0"
+react-dom = "^19.2.0"
+react-router-dom = "^6.22.0"
+react-error-boundary = "^5.0.0"
+"@tanstack/react-form" = "^1.33.0"
+zod = "^4.3.6"
+
+[dependencies.npm.dev]
+vite = "^6.4.1"
+"@vitejs/plugin-react" = "^4.7.0"
+typescript = "^5.3.3"
+"@types/react" = "^19.2.0"
+"@types/react-dom" = "^19.2.0"
+
+[client.app_meta_data]
+title = "Studyline · A little more clarity"
+description = "Your coursework, deadlines, and next small step."
+theme_color = "#244d43"
+
+[serve]
+host = "127.0.0.1"
+
+[test]
+directories = ["tests"]
